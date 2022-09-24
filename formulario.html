@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+
+    <div>
+        <h3>Lista de Páginas</h3>
+        
+        <ul>
+            <li><a href="http://localhost/PracticaHTML/index.html">Principal</a></li>
+            <li><a href="http://localhost/PracticaHTML/formulario.html">Formulario</a></li>
+            <li><a href="http://localhost/PracticaHTML/tabla.html">Tablas</a></li>
+            <li><a href="http://localhost/PracticaHTML/libre.html">Pagina libre</a></li>
+            <li><a href="http://localhost/PracticaHTML/texto.html">Textos</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <fieldset >
+        <legend><h3>Formulario de prueba</h3></legend>
+
+            <form action="">
+                    <label for="nombre">Elemento</label><br>
+                    <input type="text" placeholder="Maquina1"><br><br>
+
+                    <label for="descripcion" >Descripcion</label><br>
+                    <textarea name="desc" id="desc" cols="40" rows="10" placeholder="Escriba una pequeña descripción..."></textarea><br><br>
+        
+                    <label for="nserie">Numero Serie</label><br>
+                    <input type="number" placeholder="XXX-XXX-XXX-XXX"><br><br>
+
+                    <label for="nombre">Activo</label>
+                    <input type="checkbox"><br><br>
+
+                    <label for="nombre">Prioridad</label><br>
+        
+                    <input type="radio" name="prio" id="pa">
+                    <label for="alta">alta</label><br>
+        
+                    <input type="radio" name="prio" id="pm">
+                    <label for="media">medio</label><br>
+        
+                    <input type="radio" name="prio" id="pb">
+                    <label for="baja">bajo</label>
+
+
+                    <br><br>
+
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Restablece">
+            </form>
+
+    </fieldset>
+
+    
+    <footer>
+        <hr>
+
+        <div>
+             <img src="./img/logo.png" alt="Logo ">
+             <img src="https://cdn-icons-png.flaticon.com/512/39/39861.png" width="120" height="120" alt="Logo" align="right">
+        </div>
+
+    </footer>
+    
+
+
+</body>
+</html>
