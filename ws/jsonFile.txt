@@ -1,0 +1,7 @@
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"hola","Descipcion":"eewrw","N.Serie":"13123","Estado":"Activo","Prioridad":"Alta"}

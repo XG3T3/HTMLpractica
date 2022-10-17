@@ -10,50 +10,52 @@
 
     <div>
         <h3>Lista de Páginas</h3>
-        
         <ul>
-            <li><a href="http://localhost/PracticaHTML/index.html">Principal</a></li>
-            <li><a href="http://localhost/PracticaHTML/formulario.html">Formulario</a></li>
-            <li><a href="http://localhost/PracticaHTML/tabla.html">Tablas</a></li>
-            <li><a href="http://localhost/PracticaHTML/libre.html">Pagina libre</a></li>
-            <li><a href="http://localhost/PracticaHTML/texto.html">Textos</a></li>
+            <li><a href="./index.html">Principal</a></li>
+            <li><a href="./formulario.html">Formulario</a></li>
+            <li><a href="./tabla.html">Tablas</a></li>
+            <li><a href="./libre.html">Pagina libre</a></li>
+            <li><a href="./texto.html">Textos</a></li>
         </ul>
+        <hr>
     </div>
 
-    <hr>
+
 
     <fieldset >
         <legend><h3>Formulario de prueba</h3></legend>
 
-            <form action="">
-                    <label for="nombre">Elemento</label><br>
-                    <input type="text" placeholder="Maquina1"><br><br>
+            <form action = "./ws/createElement.php" method="post">
+                    <label for = "nombre">Elemento</label><br>
+                    <input type = "text" name = "nombre" placeholder = "Maquina1"  required><br><br>
 
-                    <label for="descripcion" >Descripcion</label><br>
-                    <textarea name="desc" id="desc" cols="40" rows="10" placeholder="Escriba una pequeña descripción..."></textarea><br><br>
+                    <label for = "descripcion" >Descripcion</label><br>
+                    <textarea name = "desc" id = "desc" cols = "40" rows = "10" placeholder  ="Escriba una pequeña descripción..."  required></textarea><br><br>
         
-                    <label for="nserie">Numero Serie</label><br>
-                    <input type="number" placeholder="XXX-XXX-XXX-XXX"><br><br>
+                    <label for = "nserie">Numero Serie</label><br>
+                    <input type = "number" name="numero" placeholder = "23424"  required><br><br>
 
-                    <label for="nombre">Activo</label>
-                    <input type="checkbox"><br><br>
+                    <label for = "nombre">Activo</label>
+                    <input type = "checkbox" name="act" value="Activo"><br><br>
 
-                    <label for="nombre">Prioridad</label><br>
+
+                    
+                    <label for = "nombre" > Prioridad </label><br>
         
-                    <input type="radio" name="prio" id="pa">
-                    <label for="alta">alta</label><br>
+                    <input type = "radio" name = "prio" id = "pa" value = "Alta"  required>
+                    <label for = "alta">alta</label><br>
         
-                    <input type="radio" name="prio" id="pm">
-                    <label for="media">medio</label><br>
+                    <input type = "radio" name ="prio" id = "pm" value = "Media">
+                    <label for = "media">medio</label><br>
         
-                    <input type="radio" name="prio" id="pb">
-                    <label for="baja">bajo</label>
+                    <input type = "radio" name = "prio" id = "pb" value = "Baja">
+                    <label for = "baja">bajo</label>
 
 
                     <br><br>
 
-                    <input type="submit" value="Enviar">
-                    <input type="reset" value="Restablece">
+                    <input type = "submit" value = "Enviar">
+                    <input type = "reset" value = "Restablece">
             </form>
 
     </fieldset>

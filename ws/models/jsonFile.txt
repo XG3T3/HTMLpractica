@@ -1,0 +1,3 @@
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"123123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"Sin expecificar","Descipcion":"Sin expecificar","N.Serie":"123123","Estado":"Activo","Prioridad":"Alta"}
+{"Nombre ":"asd","Descipcion":"asd","N.Serie":"12","Estado":"Activo","Prioridad":"Alta"}
