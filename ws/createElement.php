@@ -1,8 +1,10 @@
 <?php
 
-include_once './models/Elemento.php';
 
 
+
+require_once 'interfaces/interefaz.php';
+require_once 'models/Elemento.php';
 
 
 

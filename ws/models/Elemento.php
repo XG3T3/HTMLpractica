@@ -2,7 +2,6 @@
 <?php
 
 
-include_once './interfaces/interefaz.php';
 
 class Elemento implements IToJson{
 
@@ -96,10 +95,7 @@ function toJson()
 
     file_put_contents($archivo , $codi.PHP_EOL , FILE_APPEND);
 
-    
    return $codi;
-    
-
 }
 }
 ?>
