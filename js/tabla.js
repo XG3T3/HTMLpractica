@@ -1,10 +1,10 @@
 
 
-let elementos=[{"Nombre":"Maquina hidraulica","Descipcion":"Funciona mediante pistones","N.Serie":"1231","Activo":true,"Prioridad":"Media"},
-{"Nombre":"Maquinas Termica","Descipcion":"Funciona mediante calor","N.Serie":"1231","Activo":true,"Prioridad":"Media"},
-{"Nombre":"Maquina Refrigeradora","Descipcion":"Funciona mediante frio","N.Serie":"1231","Activo":true,"Prioridad":"Media"},
-{"Nombre":"Maquina Instaladora","Descipcion":"Funciona instalando","N.Serie":"1231","Activo":true,"Prioridad":"Media"},
-{"Nombre":"Medidor de Presion","Descipcion":"Funciona midiendo presion","N.Serie":"1231","Activo":true,"Prioridad":"Media"}];
+let elementos=[{"Nombre":"Maquina hidraulica","Descipcion":"Funciona mediante pistones","N_Serie":"1231","Activo":true,"Prioridad":"Media"},
+{"Nombre":"Maquinas Termica","Descipcion":"Funciona mediante calor","N_Serie":"1231","Activo":true,"Prioridad":"Media"},
+{"Nombre":"Maquina Refrigeradora","Descipcion":"Funciona mediante frio","N_Serie":"1231","Activo":true,"Prioridad":"Media"},
+{"Nombre":"Maquina Instaladora","Descipcion":"Funciona instalando","N_Serie":"1231","Activo":true,"Prioridad":"Media"},
+{"Nombre":"Medidor de Presion","Descipcion":"Funciona midiendo presion","N_Serie":"1231","Activo":true,"Prioridad":"Media"}];
 
 
 
