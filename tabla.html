@@ -5,60 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla</title>
+    <script src="./js/tabla.js"></script> 
+   
 </head>
 <body>
-
+  
 
  
     <div>
         <h3>Lista de Páginas</h3>
         <ul>
-            <li><a href="http://localhost/PracticaHTML/index.html">Principal</a></li>
-            <li><a href="http://localhost/PracticaHTML/formulario.html">Formulario</a></li>
-            <li><a href="http://localhost/PracticaHTML/tabla.html">Tablas</a></li>
-            <li><a href="http://localhost/PracticaHTML/libre.html">Pagina libre</a></li>
-            <li><a href="http://localhost/PracticaHTML/texto.html">Textos</a></li>
+            <li><a href="./index.html">Principal</a></li>
+            <li><a href="./formulario.html">Formulario</a></li>
+            <li><a href="./tabla.html">Tablas</a></li>
+            <li><a href="./libre.html">Pagina libre</a></li>
+            <li><a href="./texto.html">Textos</a></li>
         </ul>
         <hr>
     </div>
    
     <div>
         
-        
-        <table border="1" cellspacing="0" width="700" height="200" align="center" >
-            <caption > <b>Tabla con información de formulario</b> </caption>
+        <input type = "search"  onkeyup = "filtro()" onsearch = "limpia()" id = "busqueda">
+        <table border = "1" cellspacing = "0" width = "600" >
+            
             <tr>
+                <th>Acciones</th>
                 <th>Elemento</th>
                 <th>Descripcion</th>
-                <th>N.serie</th>
-                <th>Activo</th>
+                <th>N_serie</th>
+                <th>Estado</th>
                 <th>Prioridad</th>
             </tr>
             
-    
-            <tr>
-                <td>M1</td>
-                <td>Maquina 1</td>
-                <td>5561-16-4563-13 </td>
-                <td>Activo</td>
-                <td>Alta</td>
-            </tr>
-    
-            <tr>
-                <td>M2</td>
-                <td>Maquina 2</td>
-                <td>98412-95231-4563-13 </td>
-                <td>Inctivo</td>
-                <td>Alta</td>
-            </tr>
 
-            <tr>
-                <td>T-800</td>
-                <td>Terminator Maquina</td>
-                <td>800-95231-4563-1333 </td>
-                <td>Inctivo</td>
-                <td>Alta</td>
-            </tr>
+           
         </table>    
     </div>
     
@@ -75,6 +56,7 @@
          
     
 </body>
+
 </html>
 
 
