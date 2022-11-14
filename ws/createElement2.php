@@ -12,12 +12,12 @@ $prioridad = 'Sin expecificar';
 
 if(!empty($_POST['nombre']))
 {
-    $nombre = (trim($_POST['nombre'])) ?? 'null';
+    $nombre = (trim($_POST['nombre']));
 }
 
 if(!empty($_POST['desc']) )
 {
-    $descripcion = trim($_POST['desc']) ?? $descripcion ;
+    $descripcion = trim($_POST['desc'])  ;
 }
 
 if(!empty($_POST['numero']))
@@ -25,21 +25,14 @@ if(!empty($_POST['numero']))
     $numero = $_POST['numero'];
 }
 
-if (isset($_POST['act'])) {
-    switch ( strtolower($_POST['act'])) {
-        case 'activo':
+if (!empty($_POST['act'])) {
+    if ((strtolower($_POST['act'])) == 'activo') {
             $activp = 'Activo';
-            break;
-        case 'inactivo':
-            $activp = 'Inactivo';
-            break;
-    }
+    }           
 }
 
 
 if (!empty($_POST['prio'])) {
-    //$prioridad = $_POST['prio'];
-
     switch (strtolower($_POST['prio'])) {
         case 'baja':
             $prioridad = 'baja';
@@ -61,7 +54,7 @@ $elemento2 = new Elemento($nombre, $descripcion, $numero, $activp, $prioridad);
 
 
 
-echo ($elemento2->save());
+echo $elemento2->save();
 
 
 

@@ -25,17 +25,16 @@ if (!empty($_POST['numero'])) {
 
 if (isset($_POST['act'])) {
     switch (strtolower($_POST['act'])) {
-        case 'Activo':
+        case 'activo':
             $activp = 'Activo';
             break;
-        case 'Inactivo':
+        case 'inactivo':
             $activp = 'Inactivo';
             break;
     }
 }
 
 if (!empty($_POST['prio'])) {
-    //$prioridad = $_POST['prio'];
 
     switch (strtolower($_POST['prio'])) {
         case 'baja':
@@ -58,8 +57,10 @@ if (!empty($_POST['prio'])) {
 $elemento2 = new Elemento($nombre, $descripcion, $numero, $activp, $prioridad);
 
 
-if (!empty($_GET['id'])) {
+if (!empty(($_GET['id'])) && !empty(trim($_GET['id']))) {
     echo $elemento2->save($_GET['id']);
 } else {
-    echo json_encode(['success'=> false,'message: '=> "Has enviado una id vacia",'data: ' => null],JSON_PRETTY_PRINT);
+    echo json_encode(['success' => false, 'message: ' => "Has enviado una id vacia", 'data: ' => null], JSON_PRETTY_PRINT);
 }
+
+?>

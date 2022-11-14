@@ -101,6 +101,8 @@ class Elemento implements IToJson {
         return $codi;
     }
 
+ ////////////////////// PRACTICA PDO/////////////////////////////////////////////
+
 
     private static function conexion(){
         $dsn= 'mysql:name=127.0.0.1;port=3306;dbname=monfab';
@@ -120,25 +122,25 @@ class Elemento implements IToJson {
             try{
 
             
-                $consulta = $pdo -> query("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos");
-                $consultaresul = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                $consulta = $pdo->query("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos");
+                $consultaRes = $consulta->fetchAll(PDO :: FETCH_ASSOC);
             
                 return json_encode(['succes' => true,
-                                    'Mensaje' => "Mostrando todos los elementos de la tabla,",
-                                    'data:'=> $consultaresul],JSON_PRETTY_PRINT);   
+                                    'mensaje' => "Mostrando todos los elementos de la tabla,",
+                                    'data:'=> $consultaRes], JSON_PRETTY_PRINT);   
             }
             catch(PDOException $exx){
                 return json_encode(['succes' => false,
-                                    'Mensaje' => "La query tiene un error",
-                                    'data:'=> null],JSON_PRETTY_PRINT);
+                                    'mensaje' => "La query tiene un error",
+                                    'data:'=> null], JSON_PRETTY_PRINT);
             }
 
         }
 
         catch(PDOException $ex){
         return json_encode(['succes' => false,
-                        'Mensaje' => "La conexion tiene un error",
-                        'data:'=> null],JSON_PRETTY_PRINT);
+                        'mensaje' => "La conexion tiene un error",
+                        'data:'=> null], JSON_PRETTY_PRINT);
                         
 
         }
@@ -159,16 +161,16 @@ class Elemento implements IToJson {
                 $consulta-> bindParam(":id",$id);
                 $consulta->execute();
 
-                $consultaS = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                $consultaRes = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-                if(!empty($consultaS)){
+                if(!empty($consultaRes)){
                 
-                    return json_encode(['success' => true,'Mensaje' => 'elemento encontrado','datos:'=> $consultaS],JSON_PRETTY_PRINT);     
+                    return json_encode(['success' => true,'Mensaje' => 'elemento encontrado','datos:' => $consultaRes],JSON_PRETTY_PRINT);     
                 }
 
                 else{
-                    $consultaS=null;
-                    return json_encode(['success' => false,'Mensaje' => "elemento con el $id no encontrado",'datos:'=> $consultaS],JSON_PRETTY_PRINT);     
+                    
+                    return json_encode(['success' => false,'Mensaje' => "elemento con el $id no encontrado",'datos:' => null],JSON_PRETTY_PRINT);     
                 }
             }
             catch(PDOException $exx){
@@ -213,8 +215,8 @@ class Elemento implements IToJson {
 
                 }
                 else{
-                    $resultado=null;
-                    return json_encode(['success' => false,'message:'=>"no existe la id: $id ",'data' => $resultado],JSON_PRETTY_PRINT);
+            
+                    return json_encode(['success' => false,'message:'=>"no existe la id: $id ",'data' => null],JSON_PRETTY_PRINT);
                 
                 }
             }
@@ -268,15 +270,15 @@ class Elemento implements IToJson {
 
 
 
-                $ultimoid=$pdo->lastInsertId();
+                $ultimoid = $pdo->lastInsertId();
 
-                $insertado= $pdo->query("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos
+                $insertado = $pdo->query("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos
                 WHERE id = $ultimoid");
 
-                $insertadov= $insertado->fetchAll(PDO::FETCH_ASSOC);
+                $insertadoBase = $insertado->fetchAll(PDO :: FETCH_ASSOC);
                 
 
-                return json_encode(['success'=> true,'message'=> "elemento creado con la id : ". $ultimoid,'data' =>$insertadov],JSON_PRETTY_PRINT) ;
+                return json_encode(['success' => true,'message' => "elemento creado con la id : " . $ultimoid,'data' => $insertadoBase],JSON_PRETTY_PRINT) ;
             }
 
             catch(PDOException $exx){
@@ -299,9 +301,9 @@ class Elemento implements IToJson {
 
         try{
             
-                $pdo = Elemento::conexion();
+            $pdo = Elemento::conexion();
 
-                try{
+            try{
 
                 $existe = $pdo->prepare("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos  WHERE id = :id");
                 $existe->bindParam(":id", $id);
