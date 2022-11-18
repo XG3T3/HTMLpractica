@@ -5,29 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla</title>
-    <script src="./js/tabla.js"></script> 
+    <link rel="stylesheet" href="./CSS/table.css">
+    <link rel="stylesheet" href="./CSS/global.css">
+    <script defer src="./js/tabla.js"></script> 
+    <script defer src="./js/navbar.js"></script>
    
 </head>
 <body>
   
 
  
-    <div>
-        <h3>Lista de Páginas</h3>
-        <ul>
-            <li><a href="./index.html">Principal</a></li>
-            <li><a href="./formulario.html">Formulario</a></li>
-            <li><a href="./tabla.html">Tablas</a></li>
-            <li><a href="./libre.html">Pagina libre</a></li>
-            <li><a href="./texto.html">Textos</a></li>
-        </ul>
-        <hr>
-    </div>
-   
-    <div>
+
+    <div id="banner">
+        <div><img src="./img/meta-logo.png" alt=""></div>
+        <div class="empresa"><h1>Your Sensor Shop</h1></div>
+        <div id="logos" >
+         
+              <img src="./img/face.ico" alt="">
+              <img src="./img/you.ico" alt="">
+              <img src="./img/insta.ico" alt="">
+         
+          
+      </div>
         
-        <input type = "search"  onkeyup = "filtro()" onsearch = "limpia()" id = "busqueda">
-        <table border = "1" cellspacing = "0" width = "600" >
+          
+          
+      </div>
+  <div id="navegador">
+      
+  </div>
+   
+    <div id="tabla">
+        
+        <input type = "search"  onkeyup = "filtro()" onsearch = "limpia()" id = "busqueda" placeholder="filtro">
+        <table  >
             
             <tr>
                 <th>Acciones</th>
@@ -50,10 +61,12 @@
         <div>
         <img src="./img/logo.png" alt="Logo "> 
 
-        <img src="https://cdn-icons-png.flaticon.com/512/39/39861.png" width="120" height="120" alt="Logo" align="right">
+        <img src="https://cdn-icons-png.flaticon.com/512/39/39861.png"id="imgf" alt="Logo" >
         </div>
     </footer>
-         
+   
+    
+
     
 </body>
 
