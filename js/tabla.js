@@ -2,39 +2,39 @@
 
 let elementos = [
     {
-        "Nombre": "Maquina hidraulica",
-        "Descipcion": "Funciona mediante pistones",
-        "N_Serie": "1231",
-        "Activo": "Activo",
-        "Prioridad": "Baja"
+        "nombre": "Maquina hidraulica",
+        "descipcion": "Funciona mediante pistones",
+        "n_Serie": "1231",
+        "activo": "Activo",
+        "prioridad": "Media"
     },
     {
-        "Nombre": "Maquinas Termica",
-        "Descipcion": "Funciona mediante calor",
-        "N_Serie": "1231",
-        "Activo": "Inactivo",
-        "Prioridad": "Media"
+        "nombre": "Maquinas Termica",
+        "descipcion": "Funciona mediante calor",
+        "n_Serie": "1231",
+        "activo": "Inactivo",
+        "prioridad": "Media"
     },
     {
-        "Nombre": "Maquina Refrigeradora",
-        "Descipcion": "Funciona mediante frio",
-        "N_Serie": "1231",
-        "Activo": "Inactivo",
-        "Prioridad": "Media"
+        "nombre": "Maquina Refrigeradora",
+        "descipcion": "Funciona mediante frio",
+        "n_Serie": "1231",
+        "activo": "Inactivo",
+        "prioridad": "Media"
     },
     {
-        "Nombre": "Maquina Instaladora",
-        "Descipcion": "Funciona instalando",
-        "N_Serie": "1231",
-        "Activo": "Inactivo",
-        "Prioridad": "Media"
+        "nombre": "Maquina Instaladora",
+        "descipcion": "Funciona instalando",
+        "n_Serie": "1231",
+        "activo": "Inactivo",
+        "prioridad": "Media"
     },
     {
-        "Nombre": "Medidor de Presion",
-        "Descipcion": "Funciona midiendo presion",
-        "N_Serie": "1231",
-        "Activo": "Activo",
-        "Prioridad": "Alta"
+        "nombre": "Medidor de Presion",
+        "descipcion": "Funciona midiendo presion",
+        "n_Serie": "1231",
+        "activo": "Activo",
+        "prioridad": "Alta"
     }];
 
 
@@ -73,18 +73,6 @@ let elementos = [
 
 //     }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
