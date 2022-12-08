@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./CSS/table.css">
     <link rel="stylesheet" href="./CSS/global.css">
     <script defer src="./js/tabla.js"></script> 
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="./js/navbar.js"></script>
    
 </head>
@@ -38,19 +39,18 @@
     <div id="tabla">
         
         <input type = "search"  onkeyup = "filtro()" onsearch = "limpia()" id = "busqueda" placeholder="filtro">
-        <table  >
-            
-            <tr>
-                <th>Acciones</th>
-                <th>Elemento</th>
-                <th>Descripcion</th>
-                <th>N_serie</th>
-                <th>Estado</th>
-                <th>Prioridad</th>
-            </tr>
-            
-
-           
+        <table>
+            <thead>
+                <tr>
+                    <th>Acciones</th>
+                    <th>Elemento</th>
+                    <th>Descripcion</th>
+                    <th>N_serie</th>
+                    <th>Estado</th>
+                    <th>Prioridad</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>    
     </div>
     

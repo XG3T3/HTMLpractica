@@ -1,41 +1,41 @@
 
 
-let elementos = [
-    {
-        "nombre": "Maquina hidraulica",
-        "descipcion": "Funciona mediante pistones",
-        "n_Serie": "1231",
-        "activo": "Activo",
-        "prioridad": "Media"
-    },
-    {
-        "nombre": "Maquinas Termica",
-        "descipcion": "Funciona mediante calor",
-        "n_Serie": "1231",
-        "activo": "Inactivo",
-        "prioridad": "Media"
-    },
-    {
-        "nombre": "Maquina Refrigeradora",
-        "descipcion": "Funciona mediante frio",
-        "n_Serie": "1231",
-        "activo": "Inactivo",
-        "prioridad": "Media"
-    },
-    {
-        "nombre": "Maquina Instaladora",
-        "descipcion": "Funciona instalando",
-        "n_Serie": "1231",
-        "activo": "Inactivo",
-        "prioridad": "Media"
-    },
-    {
-        "nombre": "Medidor de Presion",
-        "descipcion": "Funciona midiendo presion",
-        "n_Serie": "1231",
-        "activo": "Activo",
-        "prioridad": "Alta"
-    }];
+//  let elementos = [
+//     {
+//         "nombre": "Maquina hidraulica",
+//        "descipcion": "Funciona mediante pistones",
+//       "n_Serie": "1231",
+//         "activo": "Activo",
+//        "prioridad": "Media"
+//     },
+//     {
+//        "nombre": "Maquinas Termica",
+//        "descipcion": "Funciona mediante calor",
+//        "n_Serie": "1231",
+//       "activo": "Inactivo",
+//       "prioridad": "Media"
+//    },
+//    {
+//        "nombre": "Maquina Refrigeradora",
+//       "descipcion": "Funciona mediante frio",
+//        "n_Serie": "1231",
+//        "activo": "Inactivo",
+//         "prioridad": "Media"
+//     },
+//     {
+//        "nombre": "Maquina Instaladora",
+//        "descipcion": "Funciona instalando",
+//       "n_Serie": "1231",
+//         "activo": "Inactivo",
+//          "prioridad": "Media"
+//     },
+//    {
+//         "nombre": "Medidor de Presion",
+//          "descipcion": "Funciona midiendo presion",
+//         "n_Serie": "1231",
+//         "activo": "Activo",
+//         "prioridad": "Alta"
+//     }];
 
 
 
@@ -75,9 +75,29 @@ let elementos = [
 // }
 
 
+const URL ='./ws/getElement.php';
+
+
+
 
 window.addEventListener('load', () => {
+   cargaElementos();
+}
+)
+
+
+ function cargaElementos(){
+    return fetch(URL).then((response) => response.json()).then(elementos => cargaTabla(elementos.data));
+
+}
+
+function cargaTabla(elementos){
     let tabla = document.querySelector('tbody');
+    tabla.innerHTML = "";
+
+    // console.log((JSON.stringify(elementos)));
+    // console.log(('elementos'));
+    // console.log(typeof(elementos));
 
 
     for (let i = 0; i < elementos.length; i++) {
@@ -85,7 +105,7 @@ window.addEventListener('load', () => {
 
         //CREA FILA
         let fila = document.createElement('tr');
-        fila.setAttribute('id', 'e' + i);
+        fila.setAttribute('id', 'e' + elementos[i]["id"]);
 
 
         //BOTON EN CELDA
@@ -94,7 +114,7 @@ window.addEventListener('load', () => {
 
         let bt = document.createElement('button')
         bt.textContent = 'Delete'
-        bt.setAttribute('onclick', 'borrar(' + i + ')')
+        bt.setAttribute('onclick', 'borrar(' + elementos[i]["id"] + ')')
         celda.appendChild(bt);
 
         let btg = document.createElement('button');
@@ -106,8 +126,8 @@ window.addEventListener('load', () => {
 
         bt = document.createElement('button')
         bt.textContent = 'editar'
-        bt.setAttribute('id', 'editar' + i)
-        bt.setAttribute('onclick', 'editar(' + i + ')')
+        bt.setAttribute('id', 'editar' + elementos[i]["id"])
+        bt.setAttribute('onclick', 'editar(' + elementos[i]["id"] + ')')
         celda.appendChild(bt);
 
 
@@ -117,27 +137,69 @@ window.addEventListener('load', () => {
         //INSERTAR CELDA E INFORMACION DEL ELEMENTO
         for (const property in elementos[i]) {
 
-            let celda = document.createElement('td');
+            
+            if(property != 'id')
+            {let celda = document.createElement('td');
             celda.textContent = `${elementos[i][property]}`;
 
 
             let modificar = document.createElement('input');
 
 
-            fila.appendChild(celda);
+            fila.appendChild(celda);}
+            
         }
         tabla.appendChild(fila);
 
     }
 }
-)
 
 
 
 
 function borrar(i) {
-    let t = document.querySelector("#e" + i);
-    t.remove();
+
+    Swal.fire({
+        title: 'Estas seguro de borrar?',
+        text: "No podras revertir el borrado!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'NO, RECHAZO!',
+        confirmButtonText: 'SI, CONFIRMO!'
+
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+            fetch("./ws/deleteElement.php?id="+i).then(response => response.json()).then(response => {
+                if(response.success){
+                    Swal.fire(
+                        'BORRADO!',
+                        response.message,
+                        'success'
+                      ) 
+                      let t = document.querySelector("#e" + i);
+                      t.remove(); 
+                } 
+                else{
+                    Swal.fire(
+                        'No Borrado!',
+                        response.message,
+                        'error')
+                }
+            })
+          
+        }
+      })
+
+    // fetch("./ws/deleteElement.php?id="+i
+    // )
+    //  let t = document.querySelector("#e" + i);
+    //  t.remove();
+
+    
 }
 
 function editar(i) {
@@ -159,7 +221,7 @@ function editar(i) {
         }
 
         else if (x == 4) {
-            let valor = t[x].innerHTML;
+            let valor = t[x].value;
 
             let inp = document.createElement('select');
 
@@ -177,7 +239,7 @@ function editar(i) {
 
             sele2 = document.createElement('option');
             sele2.setAttribute('value', 'Inactivo');
-            sele2.innerHTML = 'Inactivo';
+            sele2.innerHTML = 'inactivo';
             if (valor == sele2.value) {
                 sele2.setAttribute('selected', '');
             }
@@ -255,33 +317,91 @@ function editar(i) {
 };
 
 function guardar(i) {
-    let t = document.querySelector("#e" + i).cells;
 
-    let cambios = [];
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `No Guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('GUARDADOS', 'Cambios guardados en la base de datos', 'success')
+
+          const formData = new FormData();
+
+          let t = document.querySelector("#e" + i).cells;
+          
+         
+          
+          formData.append('nombre',t[1].firstChild.value);
+          formData.append('desc',t[2].firstChild.value);
+          formData.append('numero',t[3].firstChild.value);
+          formData.append('act',t[4].firstChild.value);
+          formData.append('prio',t[5].firstChild.value);
+          
+         
+          
+          fetch('./ws/modifyElement.php?id='+i,{
+                  method:'POST',
+                  body:formData
+             }).then(cargaElementos());
+
+             
 
 
-    for (let x = 0; x < t.length; x++) {
-
-        if (x > 0) {
-
-            let valor = t[x].firstChild.value;
-            cambios[x - 1] = valor;
-            t[x].innerHTML = valor;
-
+        } else if (result.isDenied) {
+          Swal.fire('No modificados',
+           'Los datos no se han modificado en la base de datos', 
+           'error')
+          cargaElementos();
         }
-    }
-
-    let x = 0;
-
-    for (const property in elementos[i]) {
-        elementos[i][property] = cambios[x];
-
-        x++;
-    }
+      })
 
 
-    document.querySelector('#guardar' + i).remove();
-    document.querySelector('#editar' + i).style.display = 'inline-block';
+
+
+  //location.reload();
+
+ 
+
+   //cargaElementos().then(elementos => cargaTabla(elementos.data));
+
+
+
+
+
+
+   //let cambios = [];
+
+   //console.log(t[1].firstChild.value);
+   //console.log(t[2].firstChild.value);
+
+
+//     for (let x = 0; x < t.length; x++) {
+
+//         if (x > 0) {
+
+//             let valor = t[x].firstChild.value;
+//             cambios[x - 1] = valor;
+//             t[x].innerHTML = valor;
+
+//         }
+
+//     }
+// console.log(cambios);
+//     let x = 0;
+
+    // for (const property in elementos[i]) {
+    //     elementos[i][property] = cambios[x];
+
+    //     x++;
+    // }
+
+
+    // document.querySelector('#guardar' + i).remove();
+    // document.querySelector('#editar' + i).style.display = 'inline-block';
 }
 
 

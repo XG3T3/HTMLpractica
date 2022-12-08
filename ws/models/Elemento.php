@@ -122,17 +122,17 @@ class Elemento implements IToJson {
             try{
 
             
-                $consulta = $pdo->query("SELECT nombre,descripcion,nserie,estado,prioridad FROM elementos");
+                $consulta = $pdo->query("SELECT id,nombre,descripcion,nserie,estado,prioridad FROM elementos");
                 $consultaRes = $consulta->fetchAll(PDO :: FETCH_ASSOC);
             
                 return json_encode(['succes' => true,
                                     'mensaje' => "Mostrando todos los elementos de la tabla,",
-                                    'data:'=> $consultaRes], JSON_PRETTY_PRINT);   
+                                    'data'=> $consultaRes], JSON_PRETTY_PRINT);   
             }
             catch(PDOException $exx){
                 return json_encode(['succes' => false,
                                     'mensaje' => "La query tiene un error",
-                                    'data:'=> null], JSON_PRETTY_PRINT);
+                                    'data'=> null], JSON_PRETTY_PRINT);
             }
 
         }
@@ -140,7 +140,7 @@ class Elemento implements IToJson {
         catch(PDOException $ex){
         return json_encode(['succes' => false,
                         'mensaje' => "La conexion tiene un error",
-                        'data:'=> null], JSON_PRETTY_PRINT);
+                        'data'=> null], JSON_PRETTY_PRINT);
                         
 
         }
@@ -165,12 +165,12 @@ class Elemento implements IToJson {
 
                 if(!empty($consultaRes)){
                 
-                    return json_encode(['success' => true,'Mensaje' => 'elemento encontrado','datos:' => $consultaRes],JSON_PRETTY_PRINT);     
+                    return json_encode(['success' => true,'Mensaje' => 'elemento encontrado','data' => $consultaRes],JSON_PRETTY_PRINT);     
                 }
 
                 else{
                     
-                    return json_encode(['success' => false,'Mensaje' => "elemento con el $id no encontrado",'datos:' => null],JSON_PRETTY_PRINT);     
+                    return json_encode(['success' => false,'Mensaje' => "elemento con el $id no encontrado",'data' => null],JSON_PRETTY_PRINT);     
                 }
             }
             catch(PDOException $exx){
@@ -211,23 +211,23 @@ class Elemento implements IToJson {
 
                     $consulta->execute();
 
-                    return json_encode(['success' => true,"message:"=> "Elemento con la $id ha sido borrado",'data' => $resultado],JSON_PRETTY_PRINT);
+                    return json_encode(['success' => true,"message"=> "Elemento con la $id ha sido borrado",'data' => $resultado],JSON_PRETTY_PRINT);
 
                 }
                 else{
             
-                    return json_encode(['success' => false,'message:'=>"no existe la id: $id ",'data' => null],JSON_PRETTY_PRINT);
+                    return json_encode(['success' => false,'message'=>"no existe la id: $id ",'data' => null],JSON_PRETTY_PRINT);
                 
                 }
             }
             catch(PDOException $exx){
-                return json_encode(['succes' => false,
+                return json_encode(['success' => false,
                                     'Mensaje' => "La query tiene un error",
                                     'data:'=> null],JSON_PRETTY_PRINT);
             }
         }
         catch(PDOException $ex){
-            return json_encode(['succes' => false,
+            return json_encode(['success' => false,
             'Mensaje' => "La conexion tiene un error",
             'data:'=> null],JSON_PRETTY_PRINT);
             
@@ -282,15 +282,15 @@ class Elemento implements IToJson {
             }
 
             catch(PDOException $exx){
-                return json_encode(['succes' => false,
+                return json_encode(['success' => false,
                                     'message' => "La query tiene un error",
-                                    'data:'=> null],JSON_PRETTY_PRINT);
+                                    'data'=> null],JSON_PRETTY_PRINT);
             }
         }
         catch(PDOException $ex){
-            return json_encode(['succes' => false,
+            return json_encode(['success' => false,
                                 'message' => "La conexion tiene un error",
-                                'data:'=> null],JSON_PRETTY_PRINT);
+                                'data'=> null],JSON_PRETTY_PRINT);
         }
         
     }
@@ -395,11 +395,11 @@ class Elemento implements IToJson {
 
     function save($id = null){
 
-                if ($id != null) {
-                    return $this->modificaElement($id);
-                } else {
-                    return $this->createElement();
-                }
+        if ($id != null) {
+            return $this->modificaElement($id);
+        } else {
+            return $this->createElement();
+        }
     }
 
 }

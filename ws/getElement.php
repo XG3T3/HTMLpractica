@@ -8,6 +8,3 @@ if (!empty(($_GET['id'])) && !empty(trim($_GET['id']))) {
 } else {
     echo (Elemento::getElementAll());
 }
-
-
-?>

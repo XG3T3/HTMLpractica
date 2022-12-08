@@ -4,72 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./CSS/formulario.css">
+   <link rel="stylesheet" href="./CSS/global.css">
+   <script defer src="./js/navbar.js"></script>
+   <script defer src="./js/create.js"></script>
+   <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   
     <title>Formulario</title>
 </head>
 <body>
 
-    <div>
-        <h3>Lista de Páginas</h3>
-        <ul>
-            <li><a href="./index.html">Principal</a></li>
-            <li><a href="./formulario.html">Formulario</a></li>
-            <li><a href="./tabla.html">Tablas</a></li>
-            <li><a href="./libre.html">Pagina libre</a></li>
-            <li><a href="./texto.html">Textos</a></li>
-        </ul>
-        <hr>
+    <div id="container">
+
+
+        <div id="banner">
+          <div><img src="./img/meta-logo.png" alt=""></div>
+          <div class="empresa"><h1>Your Sensor Shop</h1></div>
+          <div id="logos" >
+           
+                <img src="./img/face.ico" alt="">
+                <img src="./img/you.ico" alt="">
+                <img src="./img/insta.ico" alt="">
+           
+            
+        </div>
+          
+            
+            
+        </div>
+    <div id="navegador">
+       
     </div>
 
+    <div>
 
+   <fieldset>
+    <legend>Formulario</legend>
 
-    <fieldset >
-        <legend><h3>Formulario de prueba</h3></legend>
+            <form id="formu">
 
-            <form action = "./ws/createElement.php" method="post">
-                    <label for = "nombre">Elemento</label><br>
-                    <input type = "text" name = "nombre" placeholder = "Maquina1"  required><br><br>
+                    <label for = "nombre">Elemento</label>
+                    <input type = "text" name = "nombre" placeholder = "Maquina1"  required>
 
-                    <label for = "descripcion" >Descripcion</label><br>
-                    <textarea name = "desc" id = "desc" cols = "40" rows = "10" placeholder  ="Escriba una pequeña descripción..."  required></textarea><br><br>
+                    <label for = "descripcion" >Descripcion</label>
+                    <textarea name = "desc" id = "desc" placeholder  ="Escriba una pequeña descripción..."  required></textarea>
         
-                    <label for = "nserie">Numero Serie</label><br>
-                    <input type = "number" name="numero" placeholder = "23424"  required><br><br>
-
-                    <label for = "nombre">Activo</label>
-                    <input type = "checkbox" name="act" value="Activo"><br><br>
+                    <label for = "nserie">Numero Serie</label>
+                    <input type = "number" id = 'numero'name="numero" placeholder = "23424"  required><br><br>
 
 
+                    <div id="pulsar">
+
+                        <div class="formd">
+                            <label for = "nombre">Activo</label>
+                            <input class="button" type = "checkbox" name="act" value="Activo">
+                        </div>
+                       
+
+                        <div class="formd">
+                                <div>
+                                    <label for = "nombre" > Prioridad </label>
+                                </div>
+                        </div>
+
+                        <div class="formd">
+                            
+                                <div id="elecciones">
+                                
+                                    <label for = "alta">alta</label>
+                                    <input  type = "radio" class="click" name = "prio" id = "pa" value = "Alta"  required>
+                        
+                                    <label for = "media">medio</label>
+                                    <input type = "radio" class="click" name ="prio" id = "pm" value = "Media">
+                                    
+                                    <label for = "baja">bajo</label>
+                                    <input type = "radio" class="click" name = "prio" id = "pb" value = "Baja">
+                                </div>
+                        </div>
+                        
+                    </div>
                     
-                    <label for = "nombre" > Prioridad </label><br>
-        
-                    <input type = "radio" name = "prio" id = "pa" value = "Alta"  required>
-                    <label for = "alta">alta</label><br>
-        
-                    <input type = "radio" name ="prio" id = "pm" value = "Media">
-                    <label for = "media">medio</label><br>
-        
-                    <input type = "radio" name = "prio" id = "pb" value = "Baja">
-                    <label for = "baja">bajo</label>
-
-
-                    <br><br>
-
-                    <input type = "submit" value = "Enviar">
-                    <input type = "reset" value = "Restablece">
+                    <div id="botones">
+                         <input class="button" type = "submit" value = "Enviar" >
+                        <input class="button" type = "reset" value = "Restablece">
+                    </div>    
             </form>
+        </fieldset>
+    </div>
+            <div id="footer">
+                
+                
+                <hr>
+                <div>
+                     <img src="./img/logo.png" alt="Logo ">
+                     <img src="https://cdn-icons-png.flaticon.com/512/39/39861.png" id="imgf" alt="Logo" >
+                </div>
+        
+            
+            </div>
 
-    </fieldset>
 
-    
-    <footer>
-        <hr>
-
-        <div>
-             <img src="./img/logo.png" alt="Logo ">
-             <img src="https://cdn-icons-png.flaticon.com/512/39/39861.png" width="120" height="120" alt="Logo" align="right">
-        </div>
-
-    </footer>
+            </div>
+            
     
 
 

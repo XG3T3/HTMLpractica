@@ -4,18 +4,19 @@
 
 include_once './models/Elemento.php';
 
-$nombre = 'Sin expecificar';
+
+$nombre = null;
 $descripcion = 'Sin expecificar';
 $numero = 99999999999;
 $activp = "Inactivo";
 $prioridad = 'Sin expecificar';
 
-if(!empty($_POST['nombre']))
+if(!empty($_POST['nombre'] ))
 {
     $nombre = (trim($_POST['nombre']));
 }
 
-if(!empty($_POST['desc']) )
+if(!empty($_POST['desc']) && !empty(trim($_POST['desc'])))
 {
     $descripcion = trim($_POST['desc'])  ;
 }
@@ -49,12 +50,17 @@ if (!empty($_POST['prio'])) {
 }
 
 
+if($nombre != null){
+    $elemento2 = new Elemento($nombre, $descripcion, $numero, $activp, $prioridad);
+    echo $elemento2->save();
+}
 
-$elemento2 = new Elemento($nombre, $descripcion, $numero, $activp, $prioridad);
+else{
+    echo json_encode(['success' => false,
+    'message' => "inserta todos los datos",
+    'data:'=> null],JSON_PRETTY_PRINT);
+}
 
-
-
-echo $elemento2->save();
 
 
 
