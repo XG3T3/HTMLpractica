@@ -1,7 +1,9 @@
 
 <h3>CDN (Cloud Delivery Network)</h3>
-<p>Son una red de servidores las cuales contienen una copia estatica de codigo(pagina web,comandos etc...) las cuales ayudan a distribuir la informacion a traves de la red ayudando a 
-aligerar la carga del servidor principal dando fluidez a la transmision de datos </p>
+<p>Son una red de servidores las cuales contienen una copia estatica de codigo(pagina web,comandos etc...) las cuales ayudan a distribuir la informacion a traves de la red ayudando a aligerar la carga del servidor principal dando fluidez a la transmision de datos </p>
+
+<img src="https://i.pinimg.com/736x/6f/a4/a3/6fa4a3196434354b87ea03d96791c0a5--meme-one-piece.jpg">
+
 
 <p>
 Por otro lado tambien tiene desventajas, a diferencia de tener el codigo en tu ordenador, el cual puedes acceder cuando quieras, dependes de la "Nube", lo que viene a ser internet, es decir, si no tienes conexion a internet olvidate de acceder a la información que contenga este CDN.
