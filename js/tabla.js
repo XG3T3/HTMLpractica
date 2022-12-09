@@ -87,7 +87,7 @@ window.addEventListener('load', () => {
 
 
  function cargaElementos(){
-    return fetch(URL).then((response) => response.json()).then(elementos => cargaTabla(elementos.data));
+     fetch(URL).then((response) => response.json()).then(elementos => cargaTabla(elementos.data));
 
 }
 
@@ -319,34 +319,44 @@ function editar(i) {
 function guardar(i) {
 
     Swal.fire({
-        title: 'Do you want to save the changes?',
+        title: 'Quieres guardar los datos?',
         showDenyButton: true,
         showCancelButton: true,
         confirmButtonText: 'Guardar',
         denyButtonText: `No Guardar`,
+        icon:'warning',
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          Swal.fire('GUARDADOS', 'Cambios guardados en la base de datos', 'success')
 
-          const formData = new FormData();
+            const formData = new FormData();
 
-          let t = document.querySelector("#e" + i).cells;
-          
-         
-          
-          formData.append('nombre',t[1].firstChild.value);
-          formData.append('desc',t[2].firstChild.value);
-          formData.append('numero',t[3].firstChild.value);
-          formData.append('act',t[4].firstChild.value);
-          formData.append('prio',t[5].firstChild.value);
-          
-         
-          
-          fetch('./ws/modifyElement.php?id='+i,{
-                  method:'POST',
-                  body:formData
-             }).then(cargaElementos());
+            let t = document.querySelector("#e" + i).cells;
+            
+           
+            
+            formData.append('nombre',t[1].firstChild.value);
+            formData.append('desc',t[2].firstChild.value);
+            formData.append('numero',t[3].firstChild.value);
+            formData.append('act',t[4].firstChild.value);
+            formData.append('prio',t[5].firstChild.value);
+            
+           
+            
+            fetch('./ws/modifyElement.php?id='+i,{
+                    method:'POST',
+                    body:formData
+               })
+               .then(()=>cargaElementos());
+
+
+
+
+          Swal.fire('GUARDADOS', 
+          'Cambios guardados en la base de datos', 
+          'success');
+
+     
 
              
 
